@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]=true>
+    <mat-toolbar></mat-toolbar>
+    <mat-toolbar><img class="img" src="../../assets/img/logo.PNG" width=150px height=150px></mat-toolbar>
+    <br><br/><br/>
+    <mat-nav-list>
+        <mat-list-item>
+          <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+            <div class="ex">Home</div></a>
+        </mat-list-item>
+        <mat-list-item>
+          <a [routerLink]="['/customer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
+            <div class="ex">Manage Customer</div></a>
+        </mat-list-item>
+
+        <mat-list-item>
+          <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>shopping_cart</mat-icon>
+            <div class="ex">Manage Product</div></a>
+        </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Customer App</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
