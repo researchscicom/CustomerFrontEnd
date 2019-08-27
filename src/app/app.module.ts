@@ -21,8 +21,8 @@ import {
   MatCardModule,
   MatDialogModule,
   MatFormFieldModule, MatGridListModule,
-  MatInputModule,
-  MatPaginatorModule,
+  MatInputModule, MatOptionModule,
+  MatPaginatorModule, MatRadioModule, MatSelectModule,
   MatSnackBarModule,
   MatTableModule
 } from '@angular/material';
@@ -61,7 +61,10 @@ import {NotificationService} from './services/notification.service';
     HttpClientModule,
     MatInputModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],

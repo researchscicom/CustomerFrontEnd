@@ -9,15 +9,15 @@ export class CustomerService {
 
   constructor(public http: HttpClient) { }
 
-  baseURL = 'http://localhost:8080/customerApp/api/customer';
+  baseURL = 'http://localhost:8080/customer/api/customer';
 
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     name: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
-    age: new FormControl('', Validators.required),
-    nic: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-    mobile: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)])
+    age: new FormControl('', [Validators.required, Validators.pattern('[0-9][0-9]')]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    gender: new FormControl('', Validators.required)
   });
   initializeFormGroup() {
     this.form.setValue({
@@ -25,8 +25,8 @@ export class CustomerService {
       name: '',
       city: '',
       age: '',
-      nic: '',
-      mobile: ''
+      email: '',
+      gender: ''
     });
   }
   populateForm(customer: Customer) {
@@ -55,6 +55,6 @@ export class Customer {
   name: string;
   city: string;
   age: string;
-  nic: string;
-  mobile: string;
+  email: string;
+  gender: string;
 }
