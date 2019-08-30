@@ -23,13 +23,14 @@ import {
   MatFormFieldModule, MatGridListModule,
   MatInputModule, MatOptionModule,
   MatPaginatorModule, MatRadioModule, MatSelectModule,
-  MatSnackBarModule,
+  MatSnackBarModule, MatStepperModule,
   MatTableModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NotificationService} from './services/notification.service';
 import { CustomerProductComponent } from './customer-product/customer-product.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,9 @@ import { CustomerProductComponent } from './customer-product/customer-product.co
     MatGridListModule,
     MatRadioModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule,
+    MatStepperModule
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
