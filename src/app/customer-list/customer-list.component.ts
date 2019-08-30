@@ -4,6 +4,9 @@ import {CustomerService} from '../services/customer.service';
 import {NotificationService} from '../services/notification.service';
 import {DialogService} from '../services/dialog.service';
 import {CustomerComponent} from '../customer/customer.component';
+import {ProductComponent} from '../product/product.component';
+import {CustomerProductComponent} from '../customer-product/customer-product.component';
+import {ProductService} from '../services/product.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -16,7 +19,7 @@ export class CustomerListComponent implements OnInit {
 
   customers: Array<any>;
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'name', 'age', 'email', 'city', 'gender', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'age', 'email', 'city', 'gender', 'proId', 'actions'];
 
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
@@ -26,6 +29,7 @@ export class CustomerListComponent implements OnInit {
   constructor(
     private customerService: CustomerService ,
     private dialog: MatDialog,
+    private productService: ProductService,
     private notificationService: NotificationService,
     private dialogService: DialogService) { }
   ngOnInit() {
@@ -93,6 +97,22 @@ export class CustomerListComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
       });
+  }
+
+  viewProduct(row) {
+    this.customerService.getProduct(row).subscribe( data => {
+      if ( data != null ) {
+        this.customerService.ProductSave(data);
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '40%';
+        this.dialog.open(CustomerProductComponent, dialogConfig).afterClosed().subscribe(result => {
+        });
+      } else {
+        this.notificationService.success('Product Not Found!');
+      }
+    });
   }
 
 

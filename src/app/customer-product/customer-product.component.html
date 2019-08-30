@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <span><mat-icon>shopping_cart</mat-icon><b> Product </b></span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-4">Id </div> <b>:  {{product.id}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Name </div> <b>:  {{product.name}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Cost </div> <b>:  {{product.cost}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Quantity </div> <b>:  {{product.quantity}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Description </div> <b>: {{product.description}}</b><br/>
+    </div>
+  </mat-card-content>
+</mat-card>

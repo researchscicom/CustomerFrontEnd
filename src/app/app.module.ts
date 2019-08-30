@@ -29,6 +29,7 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NotificationService} from './services/notification.service';
+import { CustomerProductComponent } from './customer-product/customer-product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {NotificationService} from './services/notification.service';
     ProductComponent,
     ProductListComponent,
     MyNavComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    CustomerProductComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -68,6 +70,6 @@ import {NotificationService} from './services/notification.service';
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
-  entryComponents: [CustomerComponent, ProductComponent, ConfirmComponent]
+  entryComponents: [CustomerComponent, ProductComponent, ConfirmComponent, CustomerProductComponent]
 })
 export class AppModule { }

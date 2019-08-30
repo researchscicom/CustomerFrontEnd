@@ -30,6 +30,13 @@
         </mat-grid-tile>
         <mat-grid-tile>
           <div class="controles-container">
+            <br/><br/>
+            <mat-form-field>
+              <input formControlName="proId" matInput placeholder="ProductId">
+              <mat-error *ngIf="service.form.controls['proId'].errors?.required">This field is mandatory.</mat-error>
+              <mat-error *ngIf="service.form.controls['proId'].errors?.pattern">Product Id Should be Numeric</mat-error>
+            </mat-form-field>
+
             <mat-form-field>
               <mat-select matNativeControl formControlName="city">
                 <mat-option value="Colombo">Colombo</mat-option>
