@@ -2,7 +2,7 @@
   <mat-card-header>
     <span>{{service.form.controls['id'].value?"Modify Customer":"New Customer"}}</span>
     <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+    <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
