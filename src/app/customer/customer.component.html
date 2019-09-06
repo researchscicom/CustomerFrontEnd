@@ -32,13 +32,17 @@
           <div class="controles-container">
             <br/><br/>
             <mat-form-field>
-              <input formControlName="proId" matInput placeholder="ProductId">
+              <mat-select matNativeControl formControlName="proId" placeholder="ProductID">
+                <div *ngFor="let product of products">
+                  <mat-option value="{{product.id}}">{{product.id}}</mat-option>
+                </div>
+              </mat-select>
               <mat-error *ngIf="service.form.controls['proId'].errors?.required">This field is mandatory.</mat-error>
               <mat-error *ngIf="service.form.controls['proId'].errors?.pattern">Product Id Should be Numeric</mat-error>
             </mat-form-field>
 
             <mat-form-field>
-              <mat-select matNativeControl formControlName="city">
+              <mat-select matNativeControl formControlName="city" placeholder="City">
                 <mat-option value="Colombo">Colombo</mat-option>
                 <mat-option value="Galle">Galle</mat-option>
                 <mat-option value="Gampaha">Gampaha</mat-option>

@@ -4,10 +4,8 @@ import {CustomerService} from '../services/customer.service';
 import {NotificationService} from '../services/notification.service';
 import {DialogService} from '../services/dialog.service';
 import {CustomerComponent} from '../customer/customer.component';
-import {ProductComponent} from '../product/product.component';
 import {CustomerProductComponent} from '../customer-product/customer-product.component';
 import {ProductService} from '../services/product.service';
-
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',

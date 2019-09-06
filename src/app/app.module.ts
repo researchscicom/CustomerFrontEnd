@@ -31,6 +31,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NotificationService} from './services/notification.service';
 import { CustomerProductComponent } from './customer-product/customer-product.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatOptionModule,
     MatSelectModule,
     DragDropModule,
-    MatStepperModule
+    MatStepperModule,
+    NgxSpinnerModule
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
