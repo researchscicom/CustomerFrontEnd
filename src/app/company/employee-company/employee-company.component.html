@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <span><font color="teal"><mat-icon>account_balance</mat-icon><b> Company </b></font></span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-4">Id </div> <b>:  {{company.id}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Name </div> <b>:  {{company.name}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Address </div> <b>:  {{company.address}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Phone </div> <b>:  {{company.phone}}</b><br/>
+    </div>
+    <div class="row">
+      <div class="col-md-4">Email </div> <b>: {{company.email}}</b><br/>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -21,6 +21,7 @@ export class EmployeeService {
       password: new FormControl('' , [Validators.required , Validators.minLength(8)]),
       companyId: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*')])
     });
+  company: any;
   initializeFormGroup() {
     this.form.setValue({
       id: null,
@@ -52,6 +53,15 @@ export class EmployeeService {
   }
   deleteEmployee(id ) {
     return this.http.delete(this.BASE_URL + '/' + id );
+  }
+  getCompany(employee) {
+    return this.http.post( 'http://localhost:8082/api/produce', employee);
+  }
+  CompanySave(company) {
+    this.company = company;
+  }
+  getCompanyData() {
+    return this.company;
   }
 }
 

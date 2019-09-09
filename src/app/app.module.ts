@@ -36,6 +36,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CompanyComponent } from './company/company/company.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
+import { EmployeeCompanyComponent } from './company/employee-company/employee-company.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
     EmployeeComponent,
     EmployeeListComponent,
     CompanyComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    EmployeeCompanyComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -84,6 +86,6 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
   providers: [NotificationService],
   bootstrap: [AppComponent],
   entryComponents: [CustomerComponent, ProductComponent, ConfirmComponent, CustomerProductComponent, EmployeeComponent,
-  CompanyComponent]
+  CompanyComponent, EmployeeCompanyComponent]
 })
 export class AppModule { }

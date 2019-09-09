@@ -5,6 +5,8 @@ import {NotificationService} from '../services/notification.service';
 import {DialogService} from '../services/dialog.service';
 import {CustomerComponent} from '../customer/customer.component';
 import {EmployeeComponent} from '../employee/employee.component';
+import {CustomerProductComponent} from '../customer-product/customer-product.component';
+import {EmployeeCompanyComponent} from '../company/employee-company/employee-company.component';
 
 @Component({
   selector: 'app-employee-list',
@@ -93,5 +95,21 @@ export class EmployeeListComponent implements OnInit {
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
       });
+  }
+
+  viewCompany(row) {
+    this.emplyeeService.getCompany(row).subscribe( data => {
+      if ( data != null ) {
+        this.emplyeeService.CompanySave(data);
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '40%';
+        this.dialog.open(EmployeeCompanyComponent, dialogConfig).afterClosed().subscribe(result => {
+        });
+      } else {
+        this.notificationService.success('Company Not Found!');
+      }
+    });
   }
 }
