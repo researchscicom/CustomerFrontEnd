@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerComponent } from './Customers/customer/customer.component';
+import { CustomerListComponent } from './Customers/customer-list/customer-list.component';
 import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ProductComponent } from './Products/product/product.component';
+import { ProductListComponent } from './Products/product-list/product-list.component';
 import { MyNavComponent } from './my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,11 +29,11 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NotificationService} from './services/notification.service';
-import { CustomerProductComponent } from './customer-product/customer-product.component';
+import { CustomerProductComponent } from './Customers/customer-product/customer-product.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeComponent } from './Employees/employee/employee.component';
+import { EmployeeListComponent } from './Employees/employee-list/employee-list.component';
 
 @NgModule({
   declarations: [

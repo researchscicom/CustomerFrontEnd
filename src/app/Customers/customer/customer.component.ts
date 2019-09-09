@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from '../services/customer.service';
-import {NotificationService} from '../services/notification.service';
+import {CustomerService} from '../../services/customer.service';
+import {NotificationService} from '../../services/notification.service';
 import {MatDialogRef} from '@angular/material';
-import {ProductService} from '../services/product.service';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-customer',

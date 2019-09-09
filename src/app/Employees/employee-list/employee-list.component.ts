@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {EmployeeService} from '../services/employee.service';
-import {NotificationService} from '../services/notification.service';
-import {DialogService} from '../services/dialog.service';
-import {CustomerComponent} from '../customer/customer.component';
+import {EmployeeService} from '../../services/employee.service';
+import {NotificationService} from '../../services/notification.service';
+import {DialogService} from '../../services/dialog.service';
+import {CustomerComponent} from '../../Customers/customer/customer.component';
 import {EmployeeComponent} from '../employee/employee.component';
 
 @Component({

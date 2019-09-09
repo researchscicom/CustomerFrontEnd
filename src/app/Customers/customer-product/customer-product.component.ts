@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {CustomerService} from '../services/customer.service';
+import {CustomerService} from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-product',

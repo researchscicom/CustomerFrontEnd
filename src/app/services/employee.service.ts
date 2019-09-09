@@ -12,7 +12,7 @@ export class EmployeeService {
   form: FormGroup = new FormGroup({
       id : new FormControl(null),
       fullname: new FormControl('' , Validators.required),
-      nic: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*') ,
+      nic: new FormControl('' , [Validators.required ,
         Validators.maxLength(10) , Validators.minLength(10)]),
       address: new FormControl('' , Validators.required),
       mobile: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*'),

@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {ProductService} from '../services/product.service';
-import {NotificationService} from '../services/notification.service';
-import {DialogService} from '../services/dialog.service';
+import {ProductService} from '../../services/product.service';
+import {NotificationService} from '../../services/notification.service';
+import {DialogService} from '../../services/dialog.service';
 import {ProductComponent} from '../product/product.component';
 
 @Component({
