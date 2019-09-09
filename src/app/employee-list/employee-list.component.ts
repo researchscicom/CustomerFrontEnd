@@ -1,52 +1,51 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {ProductService} from '../../services/product.service';
-import {NotificationService} from '../../services/notification.service';
-import {DialogService} from '../../services/dialog.service';
-import {ProductComponent} from '../product/product.component';
+import {EmployeeService} from '../services/employee.service';
+import {NotificationService} from '../services/notification.service';
+import {DialogService} from '../services/dialog.service';
+import {CustomerComponent} from '../customer/customer.component';
+import {EmployeeComponent} from '../employee/employee.component';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit {
 
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  products: Array<any>;
+  employees: Array<any>;
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'name', 'cost', 'quantity', 'description', 'actions'];
-
+  displayedColumns: string[] = ['id' , 'fullname' , 'nic' , 'address' , 'mobile' , 'email' , 'companyId', 'actions'];
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
   searchKey: string;
-
   constructor(
-    private productService: ProductService ,
-    private dialog: MatDialog,
+    private emplyeeService: EmployeeService,
     private notificationService: NotificationService,
-    private dialogService: DialogService) { }
+    private dialogService: DialogService,
+    private dialog: MatDialog
+  ) { }
+
   ngOnInit() {
-    this.productService.getAllProducts().subscribe(data => {
-      this.products = data;
+    this.emplyeeService.getAllEmployees().subscribe(data => {
+      this.employees = data;
     });
 
-    this.productService.getAllProducts().subscribe(
-      list => {
-        this.listData = new MatTableDataSource(list);
-        this.listData.sort = this.sort;
-        this.listData.paginator = this.paginator;
-      });
+    this.emplyeeService.getAllEmployees().subscribe( list => {
+      this.listData = new MatTableDataSource<any>(list);
+      this.listData.sort = this.sort;
+      this.listData.paginator = this.paginator;
+    });
   }
 
   remove(id: string) {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
       .afterClosed().subscribe(res => {
       if (res) {
-        this.productService.deleteProduct(id).subscribe(result => {
+        this.emplyeeService.deleteEmployee(id).subscribe(result => {
         }, error => console.error(error));
         this.ngOnInit();
         this.notificationService.warn('Successfully Deleted!');
@@ -66,34 +65,33 @@ export class ProductListComponent implements OnInit {
   }
 
   onCreate() {
-    this.productService.initializeFormGroup();
+    this.emplyeeService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '60%';
-    this.dialog.open(ProductComponent, dialogConfig).afterClosed().subscribe(result => {
+    this.dialog.open(EmployeeComponent, dialogConfig).afterClosed().subscribe(result => {
       this.refresh();
     });
   }
 
   onEdit(row) {
-    this.productService.populateForm(row);
+    this.emplyeeService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '60%';
-    this.dialog.open(ProductComponent, dialogConfig).afterClosed().subscribe(result => {
+    this.dialog.open(EmployeeComponent, dialogConfig).afterClosed().subscribe(result => {
       this.refresh();
     });
   }
 
   refresh() {
-    this.productService.getAllProducts().subscribe(
+    this.emplyeeService.getAllEmployees().subscribe(
       list => {
         this.listData = new MatTableDataSource(list);
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
       });
   }
-
 }

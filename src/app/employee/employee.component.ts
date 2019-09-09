@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from '../../services/customer.service';
-import {NotificationService} from '../../services/notification.service';
+import {ProductService} from '../services/product.service';
+import {NotificationService} from '../services/notification.service';
 import {MatDialogRef} from '@angular/material';
-import {ProductService} from '../../services/product.service';
+import {EmployeeService} from '../services/employee.service';
 
 @Component({
-  selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.scss']
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.scss']
 })
-export class CustomerComponent implements OnInit {
+export class EmployeeComponent implements OnInit {
 
-  constructor(private service: CustomerService,
+  constructor(private service: EmployeeService,
               private productService: ProductService ,
               private notificationService: NotificationService,
-              public dialogRef: MatDialogRef<CustomerComponent>
+              public dialogRef: MatDialogRef<EmployeeComponent>
   ) {}
   products: Array<any>;
 
@@ -32,11 +32,11 @@ export class CustomerComponent implements OnInit {
   onSubmit() {
     if (this.service.form.valid) {
       if (this.service.form.get('id').value != null) {
-        this.service.updateCustomer(this.service.form.get('id').value, this.service.form.value).subscribe();
-        this.notificationService.success('Customer Update Successfully!');
+        this.service.updateEmployee(this.service.form.get('id').value, this.service.form.value).subscribe();
+        this.notificationService.success('Employee Update Successfully!');
       } else {
-        this.service.saveCustomer(this.service.form.value).subscribe();
-        this.notificationService.success('New Customer added Successfully!');
+        this.service.saveEmployee(this.service.form.value).subscribe();
+        this.notificationService.success('New Employee added Successfully!');
       }
       this.service.form.reset();
       this.service.initializeFormGroup();

@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {CustomerService} from '../../services/customer.service';
-import {NotificationService} from '../../services/notification.service';
-import {DialogService} from '../../services/dialog.service';
+import {CustomerService} from '../services/customer.service';
+import {NotificationService} from '../services/notification.service';
+import {DialogService} from '../services/dialog.service';
 import {CustomerComponent} from '../customer/customer.component';
 import {CustomerProductComponent} from '../customer-product/customer-product.component';
-import {ProductService} from '../../services/product.service';
+import {ProductService} from '../services/product.service';
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
