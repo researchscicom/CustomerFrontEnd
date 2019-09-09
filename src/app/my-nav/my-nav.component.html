@@ -8,18 +8,24 @@
     <br><br/><br/>
     <mat-nav-list>
         <mat-list-item>
-          <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>home</mat-icon>
+          <a  [routerLink]="['/home']" mat-list-item  routerLinkActive="active-list-item"><mat-icon>dashboard</mat-icon>
             <div class="ex">Home</div></a>
         </mat-list-item>
         <mat-list-item>
           <a [routerLink]="['/customer']" mat-list-item routerLinkActive="active-list-item"><mat-icon>account_circle</mat-icon>
-            <div class="ex">Manage Customer</div></a>
+            <div class="ex">Customer</div></a>
         </mat-list-item>
 
         <mat-list-item>
           <a [routerLink]="['/product']" mat-list-item routerLinkActive="active-list-item"><mat-icon>shopping_cart</mat-icon>
-            <div class="ex">Manage Product</div></a>
+            <div class="ex">Product</div></a>
         </mat-list-item>
+
+      <mat-list-item>
+        <a [routerLink]="['/employee']" mat-list-item routerLinkActive="active-list-item"><mat-icon>supervised_user_circle</mat-icon>
+          <div class="ex">Employee</div></a>
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

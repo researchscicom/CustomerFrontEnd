@@ -8,7 +8,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class EmployeeService {
 
   constructor(private http: HttpClient) { }
-  BASE_URL = 'http://localhost:8080/api/employee';
+  BASE_URL = 'http://localhost:8082/api/employee';
   form: FormGroup = new FormGroup({
       id : new FormControl(null),
       fullname: new FormControl('' , Validators.required),
@@ -17,9 +17,9 @@ export class EmployeeService {
       address: new FormControl('' , Validators.required),
       mobile: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*'),
         Validators.maxLength(10) , Validators.minLength(10)]),
-      email: new FormControl('',[Validators.required , Validators.email]),
+      email: new FormControl('', [Validators.required , Validators.email]),
       password: new FormControl('' , [Validators.required , Validators.minLength(8)]),
-      companyid: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*')])
+      companyId: new FormControl('' , [Validators.required , Validators.pattern('[0-9]*')])
     });
   initializeFormGroup() {
     this.form.setValue({
@@ -37,7 +37,7 @@ export class EmployeeService {
     this.form.setValue(employee);
   }
 
-  getAllEmployees() {
+  getAllEmployees(): any {
     return this.http.get(this.BASE_URL);
   }
 
@@ -63,5 +63,5 @@ export class Employee {
   mobile: string;
   email: string;
   password: string;
-  companyid: string;
+  companyId: string;
 }
