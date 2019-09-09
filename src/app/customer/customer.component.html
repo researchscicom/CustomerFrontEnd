@@ -32,9 +32,9 @@
           <div class="controles-container">
             <br/><br/>
             <mat-form-field>
-              <mat-select matNativeControl formControlName="proId" placeholder="ProductID">
+              <mat-select matNativeControl formControlName="proId" placeholder="Product">
                 <div *ngFor="let product of products">
-                  <mat-option value="{{product.id}}">{{product.id}}</mat-option>
+                  <mat-option value="{{product.id}}">{{product.name}}</mat-option>
                 </div>
               </mat-select>
               <mat-error *ngIf="service.form.controls['proId'].errors?.required">This field is mandatory.</mat-error>
