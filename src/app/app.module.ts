@@ -34,6 +34,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { CompanyComponent } from './company/company/company.component';
+import { CompanyListComponent } from './company/company-list/company-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     ConfirmComponent,
     CustomerProductComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    CompanyComponent,
+    CompanyListComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -79,6 +83,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
-  entryComponents: [CustomerComponent, ProductComponent, ConfirmComponent, CustomerProductComponent, EmployeeComponent]
+  entryComponents: [CustomerComponent, ProductComponent, ConfirmComponent, CustomerProductComponent, EmployeeComponent,
+  CompanyComponent]
 })
 export class AppModule { }

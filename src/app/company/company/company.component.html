@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-header>
+    <span>{{service.form.controls['id'].value?"Edit Company Details":"New Company"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+      <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="id">
+            <mat-form-field>
+              <input formControlName="name" matInput placeholder="Name">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="address" matInput placeholder="address">
+              <mat-error>This field is mandatory.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="phone" matInput placeholder="Phone">
+              <mat-error *ngIf="service.form.controls['phone'].errors?.required">This field is mandatory.</mat-error>
+              <mat-error *ngIf="service.form.controls['phone'].errors?.pattern">Invalid Phone Number</mat-error>
+              <mat-error *ngIf="service.form.controls['phone'].errors?.minlength">Invalid Phone Number</mat-error>
+              <mat-error *ngIf="service.form.controls['phone'].errors?.maxlength">Invalid Phone Number</mat-error>
+            </mat-form-field>
+
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="controles-container">
+            <br/><br/>
+
+            <mat-form-field>
+              <input formControlName="email" matInput placeholder="Email">
+              <mat-error *ngIf="service.form.controls['email'].errors?.required">This field is mandatory.</mat-error>
+              <mat-error *ngIf="service.form.controls['email'].errors?.email">This should be Email Address</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="password" formControlName="password" matInput placeholder="Password">
+              <mat-error *ngIf="service.form.controls['password'].errors?.required">This field is mandatory.</mat-error>
+              <mat-error *ngIf="service.form.controls['password'].errors?.minlength">Password length should be greater than 8</mat-error>
+            </mat-form-field>
+
+
+            <br/>
+            <div class="button-row">
+              <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">Submit</button>
+              <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">Clear</button>
+            </div>
+          </div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+    </form>
+  </mat-card-content>
+</mat-card>
