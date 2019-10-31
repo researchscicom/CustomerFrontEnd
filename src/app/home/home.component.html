@@ -1,46 +1,39 @@
-<div class="row">
-  <div class="col-md-9">
-    <img src="../../assets/img/cover.jpg" width="1050">
-  </div>
+<!--<webcam #canvasOutput id="canvasOutput"></webcam>-->
 
-  <div class="col-md-3">
-    <div class="example-box" cdkDrag>
-      <img src = "../../assets/img/logo.png" width="150" height="150">
-    </div>
-  </div>
+
+<h2>Face Detection Example</h2>
+<p>
+  &lt;canvas&gt; elements named <b>canvasInput</b> and <b>canvasOutput</b> have been prepared.<br>
+  Click <b>Detect Face</b> button to see the result. You can choose another image.<br>
+</p>
+
+<div>
+  <table cellpadding="0" cellspacing="0" width="0" border="0">
+    <tr>
+      <td>
+<!--        <webcam (imageCapture)="handleImage($event)" #cap id="cap"></webcam>-->
+        <app-camera (pictureTaken)="handleImage($event)"></app-camera>
+        <button (click)="capture()">Capture</button>
+        <canvas #canvasInput id="canvasInput">
+        </canvas>
+      </td>
+      <td>
+        <canvas #canvasOutput id="canvasOutput"></canvas>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="caption">canvasInput <input (change)="readDataUrl($event)" #fileInput type="file" id="fileInput"
+                                                name="file" accept="image/*" /></div>
+      </td>
+      <td>
+        <div class="caption">canvasOutput</div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <div class="control"><button id="tryIt" (click)="detectFace()">Detect Face</button></div>
 </div>
 
-<mat-horizontal-stepper labelPosition="bottom" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" optional>
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
 

@@ -37,6 +37,16 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { CompanyComponent } from './company/company/company.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
 import { EmployeeCompanyComponent } from './company/employee-company/employee-company.component';
+import {NgOpenCVModule, OpenCVOptions} from 'ng-open-cv';
+import {WebcamModule} from 'ngx-webcam';
+import { CameraComponent } from './home/camera/camera.component';
+
+// set the location of the OpenCV files
+const openCVConfig: OpenCVOptions = {
+  scriptUrl: `assets/opencv/opencv.js`,
+  wasmBinaryFile: 'wasm/opencv_js.wasm',
+  usingWasm: true
+};
 
 @NgModule({
   declarations: [
@@ -53,7 +63,8 @@ import { EmployeeCompanyComponent } from './company/employee-company/employee-co
     EmployeeListComponent,
     CompanyComponent,
     CompanyListComponent,
-    EmployeeCompanyComponent
+    EmployeeCompanyComponent,
+    CameraComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -81,7 +92,9 @@ import { EmployeeCompanyComponent } from './company/employee-company/employee-co
     MatSelectModule,
     DragDropModule,
     MatStepperModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    WebcamModule,
+    NgOpenCVModule.forRoot(openCVConfig),
   ],
   providers: [NotificationService],
   bootstrap: [AppComponent],
